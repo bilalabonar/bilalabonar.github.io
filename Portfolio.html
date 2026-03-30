@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bilal Abo Nar 🔥 | Data Analyst</title>
+
+<!-- أيقونة الموقع (Favicon) - شعلة نار -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='80'>🔥</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #060d18;
+    --navy-mid:   #0f1c30;
+    --navy-light: #182b48;
+    --gold:       #d4af37;
+    --gold-light: #f3e5ab;
+    --gold-dim:   #99822d;
+    --white:      #fdfbf7;
+    --white-dim:  #c2bcdb;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px; 
+    font-weight: 300;
+    line-height: 1.9;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 1.2rem 6%;
+    background: rgba(6, 13, 24, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(212,175,55,0.1);
+  }
+  .nav-logo {
+    font-family:'DM Sans',sans-serif;
+    font-size: 1.6rem; font-weight:700; color:var(--white);
+    display: flex; align-items: center; gap: 8px;
+    letter-spacing: 1px;
+  }
+  .nav-logo span { font-size: 2rem; } 
+  
+  .nav-links { display:flex; gap:3rem; list-style:none; }
+  .nav-links a {
+    color:var(--white-dim); text-decoration:none;
+    font-size: 1rem; letter-spacing:0.1em; text-transform:uppercase;
+    font-weight: 500; transition:color .3s;
+  }
+  .nav-links a:hover { color:var(--gold); }
+
+  /* ── SECTIONS & SEPARATORS ── */
+  section { padding: 9rem 6%; position: relative; }
+  
+  .bg-dark { background: var(--navy); }
+  .bg-mid { 
+    background: var(--navy-mid); 
+    border-top: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .section-label {
+    font-size: 1.1rem; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); margin-bottom: 1rem; font-weight: 700;
+    display: flex; align-items: center; gap: 15px;
+  }
+  .section-label::after {
+    content: ''; height: 2px; width: 60px; background: var(--gold-dim); display: block;
+  }
+  
+  .section-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size: clamp(3rem, 5vw, 4.5rem); 
+    font-weight:700; color:var(--white); line-height:1.2;
+    margin-bottom: 4rem;
+  }
+
+  /* ── GLOW EFFECTS ── */
+  .glow-orb {
+    position: absolute; border-radius: 50%; filter: blur(120px); z-index: 0; opacity: 0.4; pointer-events: none;
+  }
+  .glow-1 { top: 10%; right: -10%; width: 500px; height: 500px; background: rgba(212,175,55,0.08); }
+  .glow-2 { bottom: 0; left: -10%; width: 600px; height: 600px; background: rgba(255,78,80,0.05); }
+
+  .content-wrapper { position: relative; z-index: 2; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height:100vh; display:flex; align-items:center;
+    padding-top: 8rem; position:relative; overflow:hidden;
+  }
+  .hero-layout {
+    display:flex; align-items:center; gap: 6rem; width:100%;
+  }
+  .hero-photo-wrap {
+    flex-shrink:0; width: 400px; height: 500px; 
+    border-radius: 30px; overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    border: 1px solid rgba(212,175,55,0.2);
+    background: var(--navy-mid); /* يظهر كخلفية لو الصورة مش موجودة */
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold-dim); font-size: 0.9rem; text-align: center;
+  }
+  .hero-photo-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+
+  .hero-text { flex:1; }
+  .hero-tag {
+    display:inline-block;
+    background: rgba(212,175,55,0.1); color:var(--gold);
+    border-radius: 50px;
+    font-size: 0.9rem; letter-spacing:0.15em; text-transform:uppercase;
+    padding:.6rem 1.5rem; margin-bottom:2rem; font-weight: 700;
+  }
+  .hero-name {
+    font-family:'Cormorant Garamond',serif;
+    font-size: clamp(4rem, 8vw, 6.5rem); 
+    font-weight:700; line-height:1.05; color:var(--white);
+    margin-bottom: 1rem;
+  }
+  .hero-name span { color:var(--gold); }
+  .hero-title {
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight:400; color:var(--white-dim); margin-bottom: 2rem;
+  }
+  .hero-usp {
+    font-size: 1.3rem; line-height: 1.9;
+    color:var(--white-dim); max-width: 650px;
+  }
+  .hero-btns { display:flex; gap: 2rem; margin-top: 3.5rem; flex-wrap:wrap; }
+  
+  .btn-primary, .btn-ghost {
+    padding: 1.2rem 3rem; font-size: 1.1rem; border-radius: 8px;
+    letter-spacing:.1em; text-transform:uppercase; font-weight: 700;
+    text-decoration:none; transition:all .3s;
+  }
+  .btn-primary { background:var(--gold); color:var(--navy); }
+  .btn-primary:hover { background:var(--white); transform:translateY(-4px); box-shadow: 0 10px 20px rgba(212,175,55,0.3); }
+  .btn-ghost { border:2px solid rgba(255,255,255,0.2); color:var(--white); }
+  .btn-ghost:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-4px); }
+
+  /* ── ABOUT ── */
+  .about-grid { display:grid; grid-template-columns:1.2fr 1fr; gap: 6rem; align-items:center; }
+  .about-text p { color:var(--white-dim); line-height: 2; font-size: 1.25rem; margin-bottom: 2rem; }
+  .about-text strong { color:var(--gold); font-weight:600; }
+  .about-stats { display:grid; grid-template-columns:1fr 1fr; gap: 2rem; }
+  .stat-box {
+    border:1px solid rgba(255,255,255,0.05); padding: 2.5rem; border-radius: 20px;
+    background: rgba(255,255,255,0.02); transition:all .3s; backdrop-filter: blur(10px);
+  }
+  .stat-box:hover { background: rgba(212,175,55,0.05); border-color: rgba(212,175,55,0.3); transform:translateY(-5px); }
+  .stat-num { font-family:'Cormorant Garamond',serif; font-size: 3.5rem; color:var(--gold); font-weight:700; line-height:1; }
+  .stat-label { font-size: 1.1rem; color:var(--white-dim); margin-top: 1rem; font-weight: 500;}
+
+  /* ── EDUCATION ── */
+  .edu-grid { display:grid; grid-template-columns:1fr 1fr; gap: 3rem; }
+  .edu-card {
+    border:1px solid rgba(255,255,255,0.05); padding: 3rem; border-radius: 20px; 
+    background: rgba(0,0,0,0.2); transition:all .3s;
+  }
+  .edu-card:hover { border-color:var(--gold-dim); transform:translateY(-5px); }
+  .edu-type { font-size: 0.95rem; letter-spacing:.15em; text-transform:uppercase; color:var(--gold); margin-bottom: 1rem; font-weight: 700; }
+  .edu-title { font-family:'Cormorant Garamond',serif; font-size: 2rem; color:var(--white); font-weight:700; margin-bottom: 0.8rem; }
+  .edu-sub  { font-size: 1.2rem; color:var(--white-dim); margin-bottom: 0.5rem; }
+  .edu-date { font-size: 1.05rem; color:rgba(255,255,255,0.4); margin-top: 1.5rem; }
+
+  /* ── SKILLS ── */
+  .skills-wrapper { display:grid; grid-template-columns:1fr 1fr; gap: 6rem; }
+  .skills-col-title { font-size: 1.8rem; color:var(--white); font-weight: 700; margin-bottom: 2.5rem; }
+  .skill-row {
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 1.2rem 0; border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .skill-name-txt { font-size: 1.3rem; color:var(--white-dim); font-weight: 500;}
+  .skill-badge { font-size: 0.9rem; letter-spacing:.1em; text-transform:uppercase; font-weight: 700; color: var(--gold); }
+  .badge-foundational { color: var(--white-dim); font-weight: 500; }
+  
+  .soft-tags { display:flex; flex-wrap:wrap; gap: 1rem; }
+  .soft-tag {
+    background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); color:var(--white-dim);
+    padding:.8rem 1.5rem; font-size: 1.1rem; border-radius: 50px; transition:all .3s;
+  }
+  .soft-tag:hover { border-color:var(--gold); color:var(--gold); background:rgba(212,175,55,0.05); }
+
+  /* ── SERVICES (مضاف حديثاً) ── */
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+  .service-card {
+    border:1px solid rgba(255,255,255,0.05); padding: 3rem; border-radius: 20px; 
+    background: rgba(0,0,0,0.2); transition:all .3s;
+  }
+  .service-card:hover { border-color:var(--gold-dim); transform:translateY(-8px); background:rgba(212,175,55,0.02); }
+  .service-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+  .service-title { font-family:'Cormorant Garamond',serif; font-size: 2.2rem; color:var(--white); font-weight:700; margin-bottom: 1rem; }
+  .service-desc { font-size: 1.15rem; color:var(--white-dim); line-height: 1.9; }
+
+  /* ── PROJECTS ── */
+  .projects-grid { display:grid; grid-template-columns:repeat(2,1fr); gap: 4rem; }
+  .project-card {
+    border:1px solid rgba(255,255,255,0.05); border-radius: 24px;
+    overflow:hidden; transition:all .4s; background: rgba(0,0,0,0.3);
+  }
+  .project-card:hover { border-color:var(--gold-dim); transform:translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+  .project-img { 
+    width:100%; height: 350px; overflow:hidden; 
+    background: var(--navy-mid); display: flex; align-items: center; justify-content: center;
+    color: var(--gold-dim); font-size: 0.9rem; text-align: center;
+  }
+  .project-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.6s ease;}
+  .project-card:hover .project-img img { transform: scale(1.08); }
+  
+  .project-body { padding: 3rem; }
+  .project-title { font-family:'Cormorant Garamond',serif; font-size: 2.2rem; color:var(--white); font-weight:700; margin-bottom: 1rem; }
+  .project-desc { font-size: 1.15rem; color:var(--white-dim); line-height: 1.9; margin-bottom: 2rem; }
+  .project-tools { display:flex; flex-wrap:wrap; gap: 0.8rem; margin-bottom: 2rem; }
+  .tool-chip {
+    background:rgba(212,175,55,0.1); color:var(--gold);
+    padding:.4rem 1rem; font-size: 0.95rem; border-radius: 6px; font-weight: 600;
+  }
+  .project-link {
+    display:inline-flex; align-items:center; gap:.6rem;
+    color:var(--white); text-decoration:none;
+    font-size: 1.1rem; font-weight: 700; transition:color .3s;
+  }
+  .project-link:hover { color:var(--gold); }
+  .project-link svg { width:20px; height:20px; fill:currentColor; transition:transform 0.3s;}
+  .project-link:hover svg { transform: translateX(5px); }
+
+  /* ── CONTACT & FOOTER ── */
+  #contact { text-align: center; }
+  .contact-inner { max-width:900px; margin:0 auto; }
+  .contact-tagline { color:var(--white-dim); font-size: 1.4rem; line-height: 1.8; margin-bottom: 4rem; }
+  .contact-links { display:flex; flex-wrap:wrap; justify-content:center; gap: 1.5rem; }
+  .contact-link {
+    display:flex; align-items:center; gap: 1rem;
+    color:var(--white); text-decoration:none; background: rgba(255,255,255,0.03);
+    font-size: 1.1rem; padding: 1.2rem 2.5rem; border-radius: 50px;
+    border:1px solid rgba(255,255,255,0.1); transition:all .3s; font-weight: 600;
+  }
+  .contact-link:hover { background:var(--gold); color:var(--navy); border-color:var(--gold); transform:translateY(-3px); }
+  .contact-link svg { width:22px; height:22px; fill:currentColor; }
+
+  footer {
+    background: #030810; padding: 3rem 6%;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 2rem;
+  }
+  .footer-name { font-size: 1.2rem; font-weight:700; color:var(--white);}
+  .footer-name span { color: var(--gold); }
+  .footer-quote { font-size: 1.1rem; color:var(--white-dim); font-style:italic; }
+
+  @media(max-width:900px){
+    .nav-links { display: none; } 
+    section { padding: 6rem 5%; }
+    .hero-layout { flex-direction:column; gap: 3rem; text-align: center; }
+    .hero-photo-wrap { width:100%; max-width: 350px; height: 400px; }
+    .about-grid,.edu-grid,.skills-wrapper,.projects-grid, .services-grid { grid-template-columns:1fr; gap: 3rem; }
+    footer { flex-direction:column; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><span>🔥</span> Bilal Abo Nar</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero" class="bg-dark">
+  <div class="glow-orb glow-1"></div>
+  <div class="hero-layout content-wrapper">
+    <div class="hero-text">
+      <div class="hero-tag">Data Analyst</div>
+      <h1 class="hero-name">Bilal <br><span>Abo Nar</span></h1>
+      <p class="hero-title">Turning Raw Data into Business Growth</p>
+      <p class="hero-usp">
+        A statistics-driven analyst empowering businesses to grow with confidence through Excel, Power BI &amp; Python. I don't just build dashboards; I tell the story behind the numbers.
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+    </div>
+    
+    <!-- تم إزالة الصورة المؤقتة. ضع صورتك كما هو موضح في الشرح -->
+    <div class="hero-photo-wrap">
+      <img src="profile.jpg" alt="Bilal Abo Nar" onerror="this.style.display='none'; this.parentNode.innerHTML='ضع صورتك هنا باسم profile.jpg';">
+    </div>
+  </div>
+</section>
+
+<section id="about" class="bg-mid">
+  <div class="content-wrapper">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Who I Am</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>third-year Statistics student</strong> at the Faculty of Science, with a strong analytical foundation built through both academic coursework and hands-on industry training.</p>
+        <p>As a participant in the <strong>DEPI (Digital Egypt Pioneers Initiative)</strong>, I've worked on real-world data analysis projects — building dashboards, running complex ETL pipelines, and translating numbers into actionable business decisions.</p>
+        <p>What sets me apart is my ability to <strong>communicate data clearly</strong>. I enjoy finding the bigger picture hidden inside millions of rows and presenting it visually so decision-makers can act fast.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">3.82</div>
+          <div class="stat-label">GPA — Statistics Major</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">2+</div>
+          <div class="stat-label">Real-World Projects</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">BI Technologies</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">DEPI</div>
+          <div class="stat-label">Pioneers Initiative</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="bg-dark">
+  <div class="glow-orb glow-2"></div>
+  <div class="content-wrapper">
+    <div class="section-label">Education</div>
+    <h2 class="section-title">Academic Background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-type">University Degree</div>
+        <div class="edu-title">B.Sc. in Statistics</div>
+        <div class="edu-sub">Faculty of Science, Mathematics &amp; Statistics</div>
+        <div class="edu-date">2022 – Present (3rd Year) • GPA: 3.82</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-type">Professional Program</div>
+        <div class="edu-title">Data Analysis Track</div>
+        <div class="edu-sub">Digital Egypt Pioneers Initiative (DEPI)</div>
+        <!-- تم إزالة التاريخ من هنا بناءً على طلبك -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="bg-mid">
+  <div class="content-wrapper">
+    <div class="section-label">Expertise</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-wrapper">
+      <div>
+        <div class="skills-col-title">Core Tools</div>
+        <div class="skill-row">
+          <span class="skill-name-txt">Microsoft Excel</span>
+          <span class="skill-badge">Advanced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name-txt">Power BI</span>
+          <span class="skill-badge">Advanced</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name-txt">Python</span>
+          <span class="skill-badge">Intermediate</span>
+        </div>
+        <div class="skill-row">
+          <span class="skill-name-txt">SQL</span>
+          <span class="skill-badge">Intermediate</span>
+        </div>
+        <!-- تم إرجاع SPSS و Minitab -->
+        <div class="skill-row">
+          <span class="skill-name-txt">SPSS / Minitab</span>
+          <span class="skill-badge badge-foundational">Foundational</span>
+        </div>
+      </div>
+      <div>
+        <div class="skills-col-title">Competencies</div>
+        <div class="soft-tags">
+          <span class="soft-tag">Data Cleaning &amp; ETL</span>
+          <span class="soft-tag">Dashboard Design</span>
+          <span class="soft-tag">Statistical Analysis</span>
+          <span class="soft-tag">Power Query</span>
+          <span class="soft-tag">DAX &amp; Data Modeling</span>
+          <span class="soft-tag">KPI Reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- تم إرجاع قسم الخدمات -->
+<section id="services" class="bg-dark">
+  <div class="content-wrapper">
+    <div class="section-label">What I Offer</div>
+    <h2 class="section-title">Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Data Analysis</h3>
+        <p class="service-desc">Clean, analyze, and interpret your data to uncover patterns and trends that drive actionable business decisions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3 class="service-title">BI Dashboards</h3>
+        <p class="service-desc">Build dynamic and interactive Power BI dashboards that give decision-makers a real-time view of their KPIs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3 class="service-title">Growth Insights</h3>
+        <p class="service-desc">Translate complex data findings into plain language and clear recommendations for sustainable business growth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="bg-mid">
+  <div class="content-wrapper">
+    <div class="section-label">Selected Work</div>
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <!-- تم إزالة الصورة المؤقتة -->
+        <div class="project-img">
+          <img src="sales-dashboard.png" alt="Sales Dashboard" onerror="this.style.display='none'; this.parentNode.innerHTML='ضع صورة الداشبورد هنا باسم sales-dashboard.png';">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Sales Strategy & Analytics</h3>
+          <p class="project-desc">End-to-end analysis of $78M+ in revenue using Power BI. Solved complex "Double Fact Table" architecture and discount logic to drive business growth and optimize retention.</p>
+          <div class="project-tools">
+            <span class="tool-chip">Power BI</span>
+            <span class="tool-chip">DAX</span>
+            <span class="tool-chip">Power Query</span>
+          </div>
+          <a href="https://github.com/bilalabonar/Sales-Insights-Analysis" class="project-link" target="_blank">
+            View on GitHub <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <!-- تم إزالة الصورة المؤقتة -->
+        <div class="project-img">
+          <img src="coffee-dashboard.png" alt="Coffee Dashboard" onerror="this.style.display='none'; this.parentNode.innerHTML='ضع صورة الداشبورد هنا باسم coffee-dashboard.png';">
+        </div>
+        <div class="project-body">
+          <h3 class="project-title">Coffee Shop Analysis</h3>
+          <p class="project-desc">Analysis of 149,000+ transactions across NYC stores. Built an ETL pipeline and interactive dashboard revealing peak hours, top products, and revenue insights.</p>
+          <div class="project-tools">
+            <span class="tool-chip">Excel</span>
+            <span class="tool-chip">Power Pivot</span>
+            <span class="tool-chip">Data Modeling</span>
+          </div>
+          <a href="#" class="project-link">
+            Coming Soon <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="bg-dark">
+  <div class="content-wrapper contact-inner">
+    <div class="section-label" style="justify-content:center;">Contact</div>
+    <h2 class="section-title">Let's Work Together</h2>
+    <p class="contact-tagline">
+      Have a dataset that needs clarity? A business question that needs an answer?<br>
+      Let's turn your data into decisions.
+    </p>
+    <div class="contact-links">
+      <a href="tel:+201023142965" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        +20 102 314 2965
+      </a>
+      <a href="mailto:blalabwnar@gmail.com" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        blalabwnar@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/bilalabonar" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <!-- تم إرجاع لينك جيت هب بناءً على طلبك -->
+      <a href="https://github.com/bilalabonar" target="_blank" class="contact-link">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Bilal <span>Abo Nar</span> 🔥</div>
+  <div class="footer-quote">"In God we trust. All others must bring data."</div>
+</footer>
+
+</body>
+</html>
